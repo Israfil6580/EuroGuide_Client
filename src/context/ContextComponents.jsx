@@ -155,12 +155,12 @@ const ContextComponents = ({ children }) => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/countries')
+        fetch('https://euro-guide-server.vercel.app/countries')
             .then(res => res.json())
             .then(data => setCountries(data))
     }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://euro-guide-server.vercel.app/review')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
@@ -183,7 +183,7 @@ const ContextComponents = ({ children }) => {
             user_name: e.target.user_name.value
         };
 
-        fetch('http://localhost:5000/added_spot', {
+        fetch('https://euro-guide-server.vercel.app/added_spot', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -201,7 +201,7 @@ const ContextComponents = ({ children }) => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/added_spot')
+        fetch('https://euro-guide-server.vercel.app/added_spot')
             .then(res => res.json())
             .then(data => setAddedSpot(data));
     }, [triggerRender]);
@@ -223,7 +223,7 @@ const ContextComponents = ({ children }) => {
                     text: "Your file has been deleted.",
                     icon: "success"
                 });
-                fetch(`http://localhost:5000/added_spot/${_id}`, {
+                fetch(`https://euro-guide-server.vercel.app/added_spot/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -238,7 +238,7 @@ const ContextComponents = ({ children }) => {
     }
 
     const seeDetails = (_id) => {
-        fetch(`http://localhost:5000/added_spot/${_id}`)
+        fetch(`https://euro-guide-server.vercel.app/added_spot/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setDetails(data);
