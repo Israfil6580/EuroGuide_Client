@@ -181,7 +181,6 @@ const ContextComponents = ({ children }) => {
             user_email: e.target.user_email.value,
             user_name: e.target.user_name.value
         };
-
         fetch('https://euro-guide-server.vercel.app/added_spot', {
             method: "POST",
             headers: {
@@ -243,6 +242,8 @@ const ContextComponents = ({ children }) => {
     }
 
 
+
+
     return (
         <OwnContext.Provider value={{
             signUpWithNewUser,
@@ -260,7 +261,6 @@ const ContextComponents = ({ children }) => {
             handleAddSpot,
             addedSpot,
             deleteSpot,
-            // seeDetails,
             details,
             showCountrySub,
             singleCountry,

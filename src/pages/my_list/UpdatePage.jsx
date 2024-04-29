@@ -28,10 +28,35 @@ const UpdatePage = () => {
 
     // Destructure properties from spot_data
     const { image, tourists_spot_name, country_Name, location, description, average_cost, seasonality, travel_time, totalVisitorsPerYear } = spot_data;
+    const update_spot = (e) => {
+        e.preventDefault();
+        const { _id } = spot_data;
 
+        const formData = {
+            image: e.target.image.value,
+            tourists_spot_name: e.target.tourists_spot_name.value,
+            country_Name: e.target.country_Name.value,
+            location: e.target.location.value,
+            description: e.target.description.value,
+            average_cost: e.target.average_cost.value,
+            seasonality: e.target.seasonality.value,
+            travel_time: e.target.travel_time.value,
+            totalVisitorsPerYear: e.target.totalVisitorsPerYear.value
+        };
+
+        fetch(`https://euro-guide-server.vercel.app/added_spot/${_id}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(res => res.json())
+            .then(result => console.log(result))
+    }
     return (
         <div className="max-w-7xl mx-auto mt-28 mb-10">
-            <form className="space-y-2 glassmorphism rounded-2xl p-10">
+            <form onSubmit={update_spot} className="space-y-2 glassmorphism rounded-2xl p-10">
                 <div className="text-center">
                     <h1 className="text-3xl font-bold title_font pb-10">Update Spot</h1>
                 </div>
