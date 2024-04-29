@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { OwnContext } from "../../context/ContextComponents";
+import { Helmet } from "react-helmet-async";
 
 const AddTourists = () => {
     const { handleAddSpot, users } = useContext(OwnContext)
     return (
         <div className="flex justify-center bg-base-200 relative min-h-screen items-center">
+            <Helmet>
+                <title>EuroGuide - add tourist</title>
+            </Helmet>
             <div className="h-60 w-60 absolute bg-neutral rounded-full blur-[130px] left-2/4 top-12 -translate-x-2/4"></div>
             <div className="flex flex-col justify-center px-6 py-10 lg:px-8 lg:w-2/4 w-full h-auto mt-20 mx-2 z-10 rounded-3xl without_glassmorphism">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">

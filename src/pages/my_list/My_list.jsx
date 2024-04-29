@@ -4,12 +4,16 @@ import { OwnContext } from "../../context/ContextComponents";
 import { Link } from "react-router-dom";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 const My_list = () => {
     const { addedSpot, users, theme, deleteSpot } = useContext(OwnContext);
     const myList = addedSpot.filter(spot => spot.user_email === users.email);
     return (
         <div className="bg-base-200 min-h-[calc(100vh-247px)]">
+            <Helmet>
+                <title>EuroGuide - My list</title>
+            </Helmet>
             <div className="max-w-7xl mx-auto py-32 relative">
                 <div className={`h-full w-[90%] blur-[140px]  rounded-full absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 ${theme === 'light' ? 'bg-neutral-300' : 'bg-neutral'}`}></div>
                 {myList.length > 0 ? (

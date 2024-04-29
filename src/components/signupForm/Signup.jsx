@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { OwnContext } from "../../context/ContextComponents";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import { Helmet } from "react-helmet-async";
 
 const Signup = () => {
     const { signUpWithNewUser, seeOrNot, see } = useContext(OwnContext);
@@ -14,6 +15,9 @@ const Signup = () => {
     return (
 
         <div className="flex justify-center bg-base-200 relative h-screen items-center">
+            <Helmet>
+                <title>EuroGuide - Signup</title>
+            </Helmet>
             <div className="h-40 w-40 absolute bg-black rounded-full blur-3xl top-12"></div>
             <div className="flex flex-col justify-center px-6 py-10 lg:px-8 border w-full h-[550px] mx-2 md:w-2/4 lg:w-96 z-10 rounded-3xl glassmorphism">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">

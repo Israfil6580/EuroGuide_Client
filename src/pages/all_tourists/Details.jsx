@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { OwnContext } from "../../context/ContextComponents";
 import { ScrollRestoration } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Details = () => {
     const { details } = useContext(OwnContext)
@@ -8,6 +9,9 @@ const Details = () => {
     console.log(details.image);
     return (
         <div className="relative max-w-7xl mx-auto mt-24 mb-14">
+            <Helmet>
+                <title>EuroGuide - Details</title>
+            </Helmet>
             <img className="w-full lg:h-[70vh] h-[calc(100vh-192px)] object-cover lg:rounded-3xl" src={image} alt="Image Description" />
             <div className="absolute top-10 rounded-2xl mx-2 lg:left-10 text-gray-200 blur_glassmorphism">
                 <div className="p-4 md:p-5">

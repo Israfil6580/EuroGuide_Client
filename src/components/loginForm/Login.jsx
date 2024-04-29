@@ -4,6 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { Link, ScrollRestoration, useLocation, useNavigate } from "react-router-dom";
 import { OwnContext } from "../../context/ContextComponents";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
     const { logInWithUser, seeOrNot, see, googleSignin, githubSignin } = useContext(OwnContext);
     const location = useLocation();
@@ -21,7 +22,11 @@ const Login = () => {
         githubSignin(e, navigate, location);
     };
     return (
+
         <div className="flex justify-center bg-base-200 relative h-screen items-center">
+            <Helmet>
+                <title>EuroGuide - Login</title>
+            </Helmet>
             <div className="h-40 w-40 absolute bg-black rounded-full blur-3xl top-12"></div>
             <div className="flex flex-col justify-center px-6 py-12 lg:px-8 border w-full h-[550px] mx-2 md:w-2/4 lg:w-96 z-10 rounded-3xl glassmorphism">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { OwnContext } from "../../context/ContextComponents";
 import { Link, ScrollRestoration } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const SingleCountry = () => {
     const { singleCountry, seeDetails } = useContext(OwnContext);
@@ -12,6 +13,9 @@ const SingleCountry = () => {
                 </div>
             ) : (
                 <div className="min-h-[calc(100vh-247px)]">
+                    <Helmet>
+                        <title>EuroGuide - Country</title>
+                    </Helmet>
                     <div className="mt-32 text-center">
                         <h1 className="text-3xl font-bold">{singleCountry.length} spot are found</h1>
                     </div>

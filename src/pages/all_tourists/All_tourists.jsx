@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { OwnContext } from "../../context/ContextComponents";
 import { Bars } from "react-loader-spinner";
 import { Link, ScrollRestoration } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const All_tourists = () => {
     const { addedSpot, theme, loading, seeDetails } = useContext(OwnContext);
@@ -58,6 +59,9 @@ const All_tourists = () => {
     } else {
         return (
             <div className="bg-base-200 ">
+                <Helmet>
+                    <title>EuroGuide - all tourist</title>
+                </Helmet>
                 <div className="max-w-7xl mx-auto relative py-32">
                     <div className="flex justify-end mb-4">
                         {sortedByCost ? (
