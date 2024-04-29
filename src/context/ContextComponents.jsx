@@ -27,7 +27,6 @@ const ContextComponents = ({ children }) => {
     const [countries, setCountries] = useState([])
     const [addedSpot, setAddedSpot] = useState([])
     const [triggerRender, setTriggerRender] = useState(false);
-    const [details, setDetails] = useState([])
     const [singleCountry, setSingleCountry] = useState([])
     const [reviews, setReviews] = useState([])
     const themeControl = (e) => {
@@ -261,7 +260,6 @@ const ContextComponents = ({ children }) => {
             handleAddSpot,
             addedSpot,
             deleteSpot,
-            details,
             showCountrySub,
             singleCountry,
             reviews

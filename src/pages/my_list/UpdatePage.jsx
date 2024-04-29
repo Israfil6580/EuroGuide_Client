@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { OwnContext } from "../../context/ContextComponents";
 import { ScrollRestoration, useLocation, useParams } from "react-router-dom";
 import { Bars } from "react-loader-spinner";
+import toast from "react-hot-toast";
 
 const UpdatePage = () => {
     const { addedSpot } = useContext(OwnContext);
@@ -52,7 +53,11 @@ const UpdatePage = () => {
             body: JSON.stringify(formData)
         })
             .then(res => res.json())
-            .then(result => console.log(result))
+            .then(result => {
+                if (result.modifiedCount > 0) {
+                    toast.success("Spot successfully updated")
+                }
+            })
     }
     return (
         <div className="max-w-7xl mx-auto mt-28 mb-10">
