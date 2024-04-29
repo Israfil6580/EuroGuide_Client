@@ -50,7 +50,8 @@ const All_tourists = () => {
                 />
             </div>
         );
-    } else if (addedSpot.length === 0) {
+    }
+    if (addedSpot.length === 0) {
         return (
             <div className="bg-base-200 text-center h-[calc(100vh-247px)] flex justify-center items-center">
                 <h2 className="text-2xl font-bold">No tourist spots available.</h2>
@@ -86,7 +87,7 @@ const All_tourists = () => {
                                         <h2 className="tracking-wide font-bold">Season :   {seasonality}</h2>
 
                                         <div>
-                                            <Link to={"/all_tourists_spot/details"} onClick={() => seeDetails(_id)} className="btn btn-neutral">View Details</Link>
+                                            <Link to={`/all_tourists_spot/details/${_id}`} onClick={() => seeDetails(_id)} className="btn btn-neutral">View Details</Link>
                                         </div>
                                     </div>
                                 </div>

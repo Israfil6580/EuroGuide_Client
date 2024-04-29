@@ -29,7 +29,7 @@ const Tourists_spot = () => {
                                         <h2 className="card-title text-2xl tracking-tight">{country_Name}</h2>
                                         <p>{description}</p>
                                         <div className="card-actions">
-                                            <Link to={"/all_tourists_spot/details"} onClick={() => seeDetails(_id)} className="btn btn-neutral">View Details</Link>
+                                            <Link to={`/all_tourists_spot/details/${_id}`} onClick={() => seeDetails(_id)} className="btn btn-neutral">View Details</Link>
                                         </div>
                                     </div>
                                 </div>

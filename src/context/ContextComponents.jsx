@@ -165,7 +165,6 @@ const ContextComponents = ({ children }) => {
             .then(data => setReviews(data))
     }, [])
 
-    console.log(countries);
 
     const handleAddSpot = (e) => {
         e.preventDefault();
@@ -237,16 +236,6 @@ const ContextComponents = ({ children }) => {
         });
     }
 
-    const seeDetails = (_id) => {
-        fetch(`https://euro-guide-server.vercel.app/added_spot/${_id}`)
-            .then(res => res.json())
-            .then(data => {
-                setDetails(data);
-            })
-            .catch(error => {
-                console.error('Error fetching details:', error);
-            });
-    };
 
     const showCountrySub = (name) => {
         const findCountry = addedSpot.filter(coun => coun.country_Name === name)
@@ -271,7 +260,7 @@ const ContextComponents = ({ children }) => {
             handleAddSpot,
             addedSpot,
             deleteSpot,
-            seeDetails,
+            // seeDetails,
             details,
             showCountrySub,
             singleCountry,

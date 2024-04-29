@@ -10,6 +10,7 @@ import My_list from "../pages/my_list/My_list";
 import PrivateRoutes from "./Private_routes";
 import Details from "../pages/all_tourists/Details";
 import SingleCountry from "../components/coutries/SingleCountry";
+import UpdatePage from "../pages/my_list/UpdatePage";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -41,12 +42,16 @@ const router = createBrowserRouter([
                 element: <PrivateRoutes><My_list /></PrivateRoutes>
             },
             {
-                path: "/all_tourists_spot/details",
+                path: "/all_tourists_spot/details/:id",
                 element: <PrivateRoutes><Details /></PrivateRoutes>
             },
             {
                 path: "/specific_Country_Spot",
                 element: <SingleCountry />
+            },
+            {
+                path: "/update_page/:id",
+                element: <UpdatePage />
             }
         ]
     }

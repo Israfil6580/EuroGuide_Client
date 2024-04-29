@@ -1,55 +1,84 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { OwnContext } from "../../context/ContextComponents";
-import { ScrollRestoration } from "react-router-dom";
+import { ScrollRestoration, useLocation, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { Bars } from "react-loader-spinner";
 
 const Details = () => {
-    const { details } = useContext(OwnContext)
-    const { image, tourists_spot_name, country_Name, location, description, average_cost, seasonality, travel_time, totalVisitorsPerYear, user_email, user_name } = details;
-    console.log(details.image);
+    const { addedSpot } = useContext(OwnContext);
+    const locations = useLocation();
+    const { id } = useParams(locations);
+    const [loading, setLoading] = useState(true);
+    const [spotData, setSpotData] = useState(null);
+
+    useEffect(() => {
+        const spot = addedSpot.find(spot => spot._id === id);
+        setSpotData(spot);
+        setLoading(false);
+    }, [addedSpot, id]);
+
+    if (loading) {
+        return (
+            <div className='h-screen flex justify-center items-center'>
+                <Bars
+                    height="80"
+                    width="80"
+                    color="#2B3440"
+                    ariaLabel="bars-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                />
+            </div>
+        );
+    }
+
     return (
         <div className="relative max-w-7xl mx-auto mt-24 mb-14">
             <Helmet>
                 <title>EuroGuide - Details</title>
             </Helmet>
-            <img className="w-full lg:h-[70vh] h-[calc(100vh-192px)] object-cover lg:rounded-3xl" src={image} alt="Image Description" />
-            <div className="absolute top-10 rounded-2xl mx-2 lg:left-10 text-gray-200 blur_glassmorphism">
-                <div className="p-4 md:p-5">
-                    <h3 className="text-xl uppercase font-bold">
-                        {tourists_spot_name}
-                    </h3>
-                    <h3 className="font-bold">
-                        {country_Name}
-                    </h3>
-                    <h3 className="font-bold">
-                        {location}
-                    </h3>
-                    <h3 className="font-semibold">
-                        Cost : ${average_cost}
-                    </h3>
-                    <h3 className="font-semibold">
-                        Seasonality : {seasonality}
-                    </h3>
-                    <h3 className="font-semibold">
-                        Travel time : {travel_time}
-                    </h3>
-                    <h3 className="font-semibold">
-                        Visitor per year : {totalVisitorsPerYear}
-                    </h3>
-                    <h3 className="font-semibold">
-                        User email : {user_email}
-                    </h3>
-                    <h3 className="font-semibold">
-                        User Name : {user_name}
-                    </h3>
-                    <p className="mt-1">
-                        Description : {description}
-                    </p>
-                </div>
-            </div>
+            {spotData && (
+                <>
+                    <img className="w-full lg:h-[70vh] h-[calc(100vh-192px)] object-cover lg:rounded-3xl" src={spotData.image} alt="Image Description" />
+                    <div className="absolute top-10 rounded-2xl mx-2 lg:left-10 text-gray-200 blur_glassmorphism">
+                        <div className="p-4 md:p-5">
+                            <h3 className="text-xl uppercase font-bold">
+                                {spotData.tourists_spot_name}
+                            </h3>
+                            <h3 className="font-bold">
+                                {spotData.country_Name}
+                            </h3>
+                            <h3 className="font-bold">
+                                {spotData.location}
+                            </h3>
+                            <h3 className="font-semibold">
+                                Cost : ${spotData.average_cost}
+                            </h3>
+                            <h3 className="font-semibold">
+                                Seasonality : {spotData.seasonality}
+                            </h3>
+                            <h3 className="font-semibold">
+                                Travel time : {spotData.travel_time}
+                            </h3>
+                            <h3 className="font-semibold">
+                                Visitor per year : {spotData.totalVisitorsPerYear}
+                            </h3>
+                            <h3 className="font-semibold">
+                                User email : {spotData.user_email}
+                            </h3>
+                            <h3 className="font-semibold">
+                                User Name : {spotData.user_name}
+                            </h3>
+                            <p className="mt-1">
+                                Description : {spotData.description}
+                            </p>
+                        </div>
+                    </div>
+                </>
+            )}
             <ScrollRestoration />
         </div>
-
     );
 };
 

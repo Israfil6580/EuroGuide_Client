@@ -1,5 +1,33 @@
+import { useContext } from "react";
+import { OwnContext } from "../../context/ContextComponents";
+import { ScrollRestoration, useLocation, useParams } from "react-router-dom";
+import { Bars } from "react-loader-spinner";
 
 const UpdatePage = () => {
+    const { addedSpot } = useContext(OwnContext);
+    const locations = useLocation();
+    const { id } = useParams(locations);
+    const spot_data = addedSpot.find(spot => spot._id === id);
+
+    // Check if spot_data is defined
+    if (!spot_data) {
+        return (
+            <div className='h-screen flex justify-center items-center'>
+                <Bars
+                    height="80"
+                    width="80"
+                    color="#2B3440"
+                    ariaLabel="bars-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                />
+            </div>
+        );
+    }
+
+    // Destructure properties from spot_data
+    const { image, tourists_spot_name, country_Name, location, description, average_cost, seasonality, travel_time, totalVisitorsPerYear } = spot_data;
 
     return (
         <div className="max-w-7xl mx-auto mt-28 mb-10">
@@ -10,11 +38,11 @@ const UpdatePage = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <label>Image URL</label>
-                        <input type="url" id="image" name="image" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter image URL..." required />
+                        <input type="url" id="image" name="image" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" defaultValue={image} placeholder="Enter image URL..." required />
                     </div>
                     <div>
                         <label>Tourists Spot Name</label>
-                        <input type="text" id="tourists_spot_name" name="tourists_spot_name" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter tourists spot name..." required />
+                        <input type="text" id="tourists_spot_name" name="tourists_spot_name" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" defaultValue={tourists_spot_name} placeholder="Enter tourists spot name..." required />
                     </div>
                     <div>
                         <label>Country Name</label>
@@ -22,7 +50,7 @@ const UpdatePage = () => {
                             id="country_Name"
                             name="country_Name"
                             className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6"
-                            defaultValue=""
+                            defaultValue={country_Name}
                             required
                         >
                             <option className="text-neutral" value="" disabled>Select a country...</option>
@@ -37,15 +65,15 @@ const UpdatePage = () => {
 
                     <div>
                         <label>Location</label>
-                        <input type="text" id="location" name="location" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter location..." required />
+                        <input type="text" id="location" name="location" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter location..." defaultValue={location} required />
                     </div>
                     <div>
                         <label>Short Description</label>
-                        <textarea id="description" name="description" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter short description..." required></textarea>
+                        <textarea id="description" name="description" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter short description..." defaultValue={description} required></textarea>
                     </div>
                     <div>
                         <label>Average Cost ($)</label>
-                        <input type="number" min='1' id="average_cost" name="average_cost" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter average cost..." required />
+                        <input type="number" min='1' id="average_cost" name="average_cost" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter average cost..." defaultValue={average_cost} required />
                     </div>
                     <div>
                         <label>Seasonality</label>
@@ -53,7 +81,7 @@ const UpdatePage = () => {
                             id="seasonality"
                             name="seasonality"
                             className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6"
-                            defaultValue=""
+                            defaultValue={seasonality}
                             required
                         >
                             <option className="text-neutral" value="" disabled>Select a season...</option>
@@ -66,16 +94,16 @@ const UpdatePage = () => {
 
                     <div>
                         <label>Travel Time(days)</label>
-                        <input type="number" id="travel_time" name="travel_time" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter travel time..." required />
+                        <input type="number" id="travel_time" name="travel_time" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter travel time..." required defaultValue={travel_time} />
                     </div>
                     <div>
                         <label>Total Visitors Per Year</label>
-                        <input type="number" min='1' id="totalVisitorsPerYear" name="totalVisitorsPerYear" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter total visitors per year..." required />
+                        <input type="number" min='1' id="totalVisitorsPerYear" name="totalVisitorsPerYear" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter total visitors per year..." required defaultValue={totalVisitorsPerYear} />
                     </div>
                 </div>
                 <input type="submit" value="Update" className="btn btn-neutral block w-full rounded-md border-0 py-1.5 focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" />
-
             </form>
+            <ScrollRestoration />
         </div>
     );
 };

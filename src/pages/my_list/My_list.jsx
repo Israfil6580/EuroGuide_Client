@@ -36,7 +36,7 @@ const My_list = () => {
                                         <td className="p-6 whitespace-nowrap">$ {spot.average_cost}</td>
                                         <td className="p-6 whitespace-nowrap">{spot.seasonality}</td>
                                         <td className="p-6 flex gap-4 whitespace-nowrap">
-                                            <Link to={'/update_spot'} className="text-white flex gap-1 items-center bg-neutral p-2 rounded-lg">Update<FaCloudUploadAlt className="text-lg" /></Link>
+                                            <Link to={`/update_page/${spot._id}`} className="text-white flex gap-1 items-center bg-neutral p-2 rounded-lg">Update<FaCloudUploadAlt className="text-lg" /></Link>
                                             <Link className="text-white flex gap-1 items-center bg-black p-2 rounded-lg" onClick={() => deleteSpot(spot._id)} >Delete<MdDelete className="text-lg" /></Link>
                                         </td>
 
