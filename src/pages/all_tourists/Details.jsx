@@ -40,7 +40,7 @@ const Details = () => {
             </Helmet>
             {spotData && (
                 <>
-                    <img className="w-full lg:h-[70vh] h-[calc(100vh-192px)] object-cover lg:rounded-3xl" src={spotData.image} alt="Image Description" />
+                    <img className="w-full lg:h-[70vh] min-h-[calc(100vh-192px)] object-cover lg:rounded-3xl" src={spotData.image} alt="Image Description" />
                     <div className="absolute top-10 rounded-2xl mx-2 lg:left-10 text-neutral blur_glassmorphism">
                         <div className="p-4 md:p-5">
                             <h3 className="text-xl uppercase font-bold">
