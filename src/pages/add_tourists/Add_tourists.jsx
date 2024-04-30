@@ -91,7 +91,7 @@ const AddTourists = () => {
                             </div>
                             <div>
                                 <label>User Name</label>
-                                <input type="text" id="user_name" name="user_name" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter your name..." required />
+                                <input type="text" id="user_name" name="user_name" className="block w-full rounded-md border-0 py-1.5 glassmorphism focus:ring-2 outline-none px-4 sm:text-sm sm:leading-6" placeholder="Enter your name..." defaultValue={users && users.displayName} readOnly />
                             </div>
                         </div>
 
