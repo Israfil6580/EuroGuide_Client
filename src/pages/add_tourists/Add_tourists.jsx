@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { OwnContext } from "../../context/ContextComponents";
 import { Helmet } from "react-helmet-async";
+import { ScrollRestoration } from "react-router-dom";
 
 const AddTourists = () => {
     const { handleAddSpot, users } = useContext(OwnContext)
@@ -101,6 +102,7 @@ const AddTourists = () => {
                     </form>
                 </div>
             </div >
+            <ScrollRestoration />
         </div >
     );
 };

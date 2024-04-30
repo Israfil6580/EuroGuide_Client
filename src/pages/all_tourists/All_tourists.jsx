@@ -5,7 +5,7 @@ import { Link, ScrollRestoration } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const All_tourists = () => {
-    const { addedSpot, theme, loading, seeDetails } = useContext(OwnContext);
+    const { addedSpot, theme, loading } = useContext(OwnContext);
     const [storedSpot, setStoredSpot] = useState([]);
     const [sortedByCost, setSortedByCost] = useState(false);
 
@@ -53,8 +53,8 @@ const All_tourists = () => {
     }
     if (addedSpot.length === 0) {
         return (
-            <div className="bg-base-200 text-center h-[calc(100vh-247px)] flex justify-center items-center">
-                <h2 className="text-2xl font-bold">No tourist spots available.</h2>
+            <div className="flex justify-center items-center h-[calc(100vh-247px)]">
+                <h1 className="text-2xl lg:text-4xl uppercase font-bold title_font">No added tourist spots</h1>
             </div>
         );
     } else {
@@ -87,7 +87,7 @@ const All_tourists = () => {
                                         <h2 className="tracking-wide font-bold">Season :   {seasonality}</h2>
 
                                         <div>
-                                            <Link to={`/all_tourists_spot/details/${_id}`} onClick={() => seeDetails(_id)} className="btn btn-neutral">View Details</Link>
+                                            <Link to={`/all_tourists_spot/details/${_id}`} className="btn btn-neutral">View Details</Link>
                                         </div>
                                     </div>
                                 </div>

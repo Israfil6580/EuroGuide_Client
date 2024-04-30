@@ -258,6 +258,7 @@ const ContextComponents = ({ children }) => {
             theme,
             countries,
             handleAddSpot,
+            setAddedSpot,
             addedSpot,
             deleteSpot,
             showCountrySub,

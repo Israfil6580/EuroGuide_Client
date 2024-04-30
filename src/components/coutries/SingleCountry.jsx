@@ -4,12 +4,12 @@ import { Link, ScrollRestoration } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const SingleCountry = () => {
-    const { singleCountry, seeDetails } = useContext(OwnContext);
+    const { singleCountry } = useContext(OwnContext);
     return (
         <div>
             {singleCountry.length === 0 ? (
                 <div className="h-[calc(100vh-247px)] flex justify-center items-center">
-                    <h1 className="text-3xl font-bold">No Spots in this country right now</h1>
+                    <h1 className="text-3xl title_font uppercase font-bold tracking-wide">No Spots in this country</h1>
                 </div>
             ) : (
                 <div className="min-h-[calc(100vh-247px)]">
@@ -17,7 +17,7 @@ const SingleCountry = () => {
                         <title>EuroGuide - Country</title>
                     </Helmet>
                     <div className="mt-32 text-center">
-                        <h1 className="text-3xl font-bold">{singleCountry.length} spot are found</h1>
+                        <h1 className="text-3xl title_font font-bold tracking-wide uppercase">{singleCountry.length} spot are found</h1>
                     </div>
                     <div className="grid grid-cols-3 gap-6 max-w-7xl mx-auto mt-10 mb-20">
                         {singleCountry.map(con => {
@@ -32,7 +32,7 @@ const SingleCountry = () => {
                                         <h2 className="card-title text-2xl tracking-tight">{seasonality}</h2>
                                         <p>{description}</p>
                                         <div className="card-actions">
-                                            <Link to={`/all_tourists_spot/details/${_id}`} onClick={() => seeDetails(_id)} className="btn btn-neutral">View Details</Link>
+                                            <Link to={`/all_tourists_spot/details/${_id}`} className="btn btn-neutral">View Details</Link>
                                         </div>
                                     </div>
                                 </div>

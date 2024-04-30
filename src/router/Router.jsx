@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/update_page/:id",
-                element: <UpdatePage />
+                element: <PrivateRoutes><UpdatePage /></PrivateRoutes>
             }
         ]
     }

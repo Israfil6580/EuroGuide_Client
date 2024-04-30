@@ -3,7 +3,7 @@ import { OwnContext } from "../../context/ContextComponents";
 import { Link } from "react-router-dom";
 
 const Tourists_spot = () => {
-    const { addedSpot, seeDetails } = useContext(OwnContext)
+    const { addedSpot } = useContext(OwnContext)
     return (
         <div className="bg-base-200 ">
             <div className="max-w-7xl mx-auto relative">
@@ -29,7 +29,7 @@ const Tourists_spot = () => {
                                         <h2 className="card-title text-2xl tracking-tight">{country_Name}</h2>
                                         <p>{description}</p>
                                         <div className="card-actions">
-                                            <Link to={`/all_tourists_spot/details/${_id}`} onClick={() => seeDetails(_id)} className="btn btn-neutral">View Details</Link>
+                                            <Link to={`/all_tourists_spot/details/${_id}`} className="btn btn-neutral">View Details</Link>
                                         </div>
                                     </div>
                                 </div>

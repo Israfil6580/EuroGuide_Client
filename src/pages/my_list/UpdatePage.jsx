@@ -5,7 +5,7 @@ import { Bars } from "react-loader-spinner";
 import toast from "react-hot-toast";
 
 const UpdatePage = () => {
-    const { addedSpot } = useContext(OwnContext);
+    const { addedSpot, setAddedSpot } = useContext(OwnContext);
     const locations = useLocation();
     const { id } = useParams(locations);
     const spot_data = addedSpot.find(spot => spot._id === id);
@@ -56,6 +56,9 @@ const UpdatePage = () => {
             .then(result => {
                 if (result.modifiedCount > 0) {
                     toast.success("Spot successfully updated")
+                    const updatedSpot = { ...spot_data, ...formData }; // Assuming formData contains updated fields
+                    const updatedAddedSpot = addedSpot.map(spot => (spot._id === _id ? updatedSpot : spot));
+                    setAddedSpot(updatedAddedSpot);
                 }
             })
     }
