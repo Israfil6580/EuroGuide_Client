@@ -25,11 +25,11 @@ const SingleCountry = () => {
                             return (
                                 <div key={_id} className="card w-auto bg-base-100 without_glassmorphism transition-transform lg:hover:scale-105 duration-200 ease-in-out">
                                     <div className="card-body">
-                                        <h2 className="card-title text-3xl uppercase tracking-normal font-semibold title_font">{tourists_spot_name}</h2>
-                                        <h2 className="card-title text-2xl tracking-tight">{country_Name}</h2>
-                                        <h2 className="card-title text-2xl tracking-tight">{location}</h2>
-                                        <h2 className="card-title text-2xl tracking-tight">{average_cost}</h2>
-                                        <h2 className="card-title text-2xl tracking-tight">{seasonality}</h2>
+                                        <h2 className="card-title lg:text-3xl text-2xl uppercase tracking-normal font-semibold title_font">{tourists_spot_name}</h2>
+                                        <h2 className="card-title text-xl lg:text-2xl tracking-tight">{country_Name}</h2>
+                                        <h2 className="card-title text-xl lg:text-xl tracking-tight">{location}</h2>
+                                        <h2 className="card-title text-xl lg:text-2xl tracking-tight">Average Cost - ${average_cost}</h2>
+                                        <h2 className="card-title text-xl lg:text-2xl tracking-tight">Season - {seasonality}</h2>
                                         <p>{description}</p>
                                         <div className="card-actions">
                                             <Link to={`/all_tourists_spot/details/${_id}`} className="btn btn-neutral">View Details</Link>

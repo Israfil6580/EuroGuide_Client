@@ -80,11 +80,11 @@ const All_tourists = () => {
                                 <div key={_id} className="card shadow-none w-auto bg-base-100 without_glassmorphism lg:hover:scale-105 transition-transform">
                                     <figure><img src={image} alt="Shoes" className=" h-60 w-full object-cover" /></figure>
                                     <div className="card-body">
-                                        <h2 className="card-title">{tourists_spot_name}</h2>
-                                        <h2 className="tracking-wide font-bold">Average Cost : ${average_cost}</h2>
-                                        <h2 className="tracking-wide font-bold">Total Visitor (year) :   {totalVisitorsPerYear}</h2>
-                                        <h2 className="tracking-wide font-bold">Travel_time :   {travel_time} days</h2>
-                                        <h2 className="tracking-wide font-bold">Season :   {seasonality}</h2>
+                                        <h2 className="card-title uppercase">{tourists_spot_name}</h2>
+                                        <h2 className="tracking-wide font-semibold">Average Cost - ${average_cost}</h2>
+                                        <h2 className="tracking-wide font-semibold">Total Visitor (year) - {totalVisitorsPerYear}</h2>
+                                        <h2 className="tracking-wide font-semibold">Travel_time - {travel_time} days</h2>
+                                        <h2 className="tracking-wide font-semibold">Season - {seasonality}</h2>
 
                                         <div>
                                             <Link to={`/all_tourists_spot/details/${_id}`} className="btn btn-neutral">View Details</Link>

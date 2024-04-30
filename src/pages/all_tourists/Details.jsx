@@ -40,8 +40,8 @@ const Details = () => {
             </Helmet>
             {spotData && (
                 <>
-                    <img className="w-full lg:h-[70vh] min-h-[calc(100vh-192px)] object-cover lg:rounded-3xl" src={spotData.image} alt="Image Description" />
-                    <div className="absolute top-10 rounded-2xl mx-2 lg:left-10 text-neutral blur_glassmorphism">
+                    <img className="w-full lg:h-[70vh] min-h-screen object-cover lg:rounded-3xl" src={spotData.image} alt="Image Description" />
+                    <div className="absolute top-4 lg:top-10 rounded-2xl mx-2 lg:left-10 text-neutral blur_glassmorphism">
                         <div className="p-4 md:p-5">
                             <h3 className="text-xl uppercase font-bold">
                                 {spotData.tourists_spot_name}
@@ -56,22 +56,22 @@ const Details = () => {
                                 Cost : ${spotData.average_cost}
                             </h3>
                             <h3 className="font-semibold">
-                                Seasonality : {spotData.seasonality}
+                                Seasonality - {spotData.seasonality}
                             </h3>
                             <h3 className="font-semibold">
-                                Travel time : {spotData.travel_time} days
+                                Travel time - {spotData.travel_time} days
                             </h3>
                             <h3 className="font-semibold">
-                                Visitor per year : {spotData.totalVisitorsPerYear}
+                                Visitor per year - {spotData.totalVisitorsPerYear}
                             </h3>
                             <h3 className="font-semibold">
-                                User email : {spotData.user_email}
+                                User email - {spotData.user_email}
                             </h3>
                             <h3 className="font-semibold">
-                                User Name : {spotData.user_name}
+                                User Name - {spotData.user_name}
                             </h3>
                             <p className="mt-1">
-                                Description : {spotData.description}
+                                Description - {spotData.description}
                             </p>
                         </div>
                     </div>
