@@ -53,7 +53,7 @@ const Details = () => {
                                 {spotData.location}
                             </h3>
                             <h3 className="font-semibold">
-                                Cost : ${spotData.average_cost}
+                                Cost - ${spotData.average_cost}
                             </h3>
                             <h3 className="font-semibold">
                                 Seasonality - {spotData.seasonality}

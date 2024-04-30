@@ -7,15 +7,16 @@ const SingleCountry = () => {
     const { singleCountry } = useContext(OwnContext);
     return (
         <div>
+            <Helmet>
+                <title>EuroGuide - Country</title>
+            </Helmet>
             {singleCountry.length === 0 ? (
                 <div className="h-[calc(100vh-247px)] flex justify-center items-center">
-                    <h1 className="text-3xl title_font uppercase font-bold tracking-wide">No Spots in this country</h1>
+                    <h1 className="text-3xl lg:text-4xl title_font text-center uppercase font-bold tracking-wide">No Spots in this country</h1>
                 </div>
             ) : (
-                <div className="min-h-[calc(100vh-247px)]">
-                    <Helmet>
-                        <title>EuroGuide - Country</title>
-                    </Helmet>
+                <div className="min-h-screen">
+
                     <div className="mt-32 text-center">
                         <h1 className="text-3xl title_font font-bold tracking-wide uppercase">{singleCountry.length} spot are found</h1>
                     </div>
@@ -27,9 +28,9 @@ const SingleCountry = () => {
                                     <div className="card-body">
                                         <h2 className="card-title lg:text-3xl text-2xl uppercase tracking-normal font-semibold title_font">{tourists_spot_name}</h2>
                                         <h2 className="card-title text-xl lg:text-2xl tracking-tight">{country_Name}</h2>
-                                        <h2 className="card-title text-xl lg:text-xl tracking-tight">{location}</h2>
-                                        <h2 className="card-title text-xl lg:text-2xl tracking-tight">Average Cost - ${average_cost}</h2>
-                                        <h2 className="card-title text-xl lg:text-2xl tracking-tight">Season - {seasonality}</h2>
+                                        <h2 className="card-title text-lg lg:text-xl tracking-tight">{location}</h2>
+                                        <h2 className="card-title text-lg lg:text-xl tracking-tight">Average Cost - ${average_cost}</h2>
+                                        <h2 className="card-title text-lg lg:text-xl tracking-tight">Season - {seasonality}</h2>
                                         <p>{description}</p>
                                         <div className="card-actions">
                                             <Link to={`/all_tourists_spot/details/${_id}`} className="btn btn-neutral">View Details</Link>

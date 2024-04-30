@@ -3,6 +3,7 @@ import { OwnContext } from "../../context/ContextComponents";
 import { ScrollRestoration, useLocation, useParams } from "react-router-dom";
 import { Bars } from "react-loader-spinner";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const UpdatePage = () => {
     const { addedSpot, setAddedSpot } = useContext(OwnContext);
@@ -56,14 +57,18 @@ const UpdatePage = () => {
             .then(result => {
                 if (result.modifiedCount > 0) {
                     toast.success("Spot successfully updated")
-                    const updatedSpot = { ...spot_data, ...formData }; // Assuming formData contains updated fields
+                    const updatedSpot = { ...spot_data, ...formData };
                     const updatedAddedSpot = addedSpot.map(spot => (spot._id === _id ? updatedSpot : spot));
                     setAddedSpot(updatedAddedSpot);
                 }
             })
     }
     return (
-        <div className="max-w-7xl mx-auto mt-28 mb-10">
+        <div className="max-w-7xl mx-auto mt-28 mb-10 relative">
+            <Helmet>
+                <title>EuroGuide - Update</title>
+            </Helmet>
+            <div className="h-60 w-60 absolute bg-neutral rounded-full blur-[130px] left-2/4 top-12 -translate-x-2/4"></div>
             <form onSubmit={update_spot} className="space-y-2 glassmorphism rounded-2xl p-10">
                 <div className="text-center">
                     <h1 className="text-3xl font-bold title_font pb-10">Update Spot</h1>
