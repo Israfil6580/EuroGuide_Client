@@ -28,14 +28,14 @@ const Login = () => {
                 <title>EuroGuide - Login</title>
             </Helmet>
             <div className="h-40 w-40 absolute bg-black rounded-full blur-3xl top-12"></div>
-            <div className="flex flex-col justify-center px-6 py-12 lg:px-8 border w-full h-[550px] mx-2 md:w-2/4 lg:w-96 z-10 rounded-3xl glassmorphism">
+            <div className="flex flex-col justify-center px-6 py-12 lg:px-8 border w-full h-[550px] mx-2 md:w-2/4 lg:w-96 z-10 rounded-3xl glassmorphism lg:mt-0 mt-20">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight">
                         Login to your account
                     </h2>
                 </div>
 
-                <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form onSubmit={handleLogin} className="space-y-6">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6">

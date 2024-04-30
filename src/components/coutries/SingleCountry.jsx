@@ -19,7 +19,7 @@ const SingleCountry = () => {
                     <div className="mt-32 text-center">
                         <h1 className="text-3xl title_font font-bold tracking-wide uppercase">{singleCountry.length} spot are found</h1>
                     </div>
-                    <div className="grid grid-cols-3 gap-6 max-w-7xl mx-auto mt-10 mb-20">
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 max-w-7xl mx-auto mt-10 mb-20">
                         {singleCountry.map(con => {
                             const { _id, tourists_spot_name, country_Name, location, description, average_cost, seasonality } = con;
                             return (
