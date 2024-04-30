@@ -83,7 +83,7 @@ const All_tourists = () => {
                                         <h2 className="card-title">{tourists_spot_name}</h2>
                                         <h2 className="tracking-wide font-bold">Average Cost : ${average_cost}</h2>
                                         <h2 className="tracking-wide font-bold">Total Visitor (year) :   {totalVisitorsPerYear}</h2>
-                                        <h2 className="tracking-wide font-bold">Travel_time :   {travel_time}</h2>
+                                        <h2 className="tracking-wide font-bold">Travel_time :   {travel_time} days</h2>
                                         <h2 className="tracking-wide font-bold">Season :   {seasonality}</h2>
 
                                         <div>
