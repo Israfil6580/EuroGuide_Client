@@ -27,7 +27,7 @@ const Tourists_spot = () => {
                                     <div className="card-body">
                                         <h2 className="card-title text-3xl uppercase tracking-normal font-semibold title_font">{tourists_spot_name}</h2>
                                         <h2 className="card-title text-2xl tracking-tight">{country_Name}</h2>
-                                        <p>{description}</p>
+                                        <p>{description.split(" ").slice(0, 20).join(" ")}...</p>
                                         <div className="card-actions">
                                             <Link to={`/all_tourists_spot/details/${_id}`} className="btn btn-neutral">View Details</Link>
                                         </div>
