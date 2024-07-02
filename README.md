@@ -8,7 +8,7 @@
 - Plan Your Perfect Vacation: Get detailed information about each tourist spot, including images, descriptions, average costs, seasonality, travel time, and total visitors per year, to help you plan your dream vacation.
 - Interactive Experience: Engage with an intuitive user interface that allows you to easily navigate through different tourist spots, filter by country, and search for specific destinations.
 
-## Technology Used : Html, Css, Javascript, React, Axios, Npm, packages, Firebase
+## Technology Used : Html, Css, Javascript, React, Axios, Npm, packages, Firebase, Tailwind Css
 
 ## You Can Run This Project On Your Local Machine
 ### Installation
