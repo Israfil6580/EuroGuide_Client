@@ -1,6 +1,6 @@
 # EuroGuide: Explore Europe's Top Tourist Spots
 
-## Live Site URL: https://magnificent-bavarois-f6e8db.netlify.app/
+### Live Site URL: [EuroGuideApp](https://magnificent-bavarois-f6e8db.netlify.app/)
 
 ## Features
 
